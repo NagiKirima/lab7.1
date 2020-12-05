@@ -2,8 +2,20 @@
 #include <ctime>
 using namespace std;
 
-template <typename t1>
+int SizeCheck()
+{
+	int size;
+	while (!(cin >> size) || (cin.peek() != '\n') || size < 1)
+	{
+		cin.clear();
+		while (cin.get() != '\n');
+		cout << "¬ведите корректное число:";
+	}
+	return size;
+}
 
+
+template <typename t1>
 void FillArray(t1 *arr, int n) 
 {
 	for (int i = 0; i < n; i++) 
@@ -33,8 +45,8 @@ int main()
 	srand(time(0));
 	int n;
 	cout << "¬ведите длину массивов\t";
-	cin >> n;
 	cout << endl;
+	n = SizeCheck();
 	int* arr = new int[n];
 	short int* arr1 = new short int[n];
 	long int* arr2 = new long int[n];
